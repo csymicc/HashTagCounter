@@ -1,0 +1,12 @@
+hashtagcounter.exe : Main.o HashtagCounter.o
+	g++ -o hashtagcounter.exe Main.o HashtagCounter.o
+
+Main.o: Main.cpp HashtagCounter.h
+	g++ -std=gnu++11 Main.cpp
+
+HashtagCounter.o: HashtagCounter.cpp HashtagCounter.h Fibonacci_Heap.h Fibonacci_Heap.o
+	g++ -std=gnu++11 -o HashtagCounter.cpp Fibonacci_Heap.o
+
+FibonacciHeap.o: Fibonacci_Heap.cpp Fibonacci_Heap.h
+	g++ -std=gnu++11 Fibonacci_Heap.cpp
+
